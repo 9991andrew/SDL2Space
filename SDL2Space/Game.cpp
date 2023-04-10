@@ -68,6 +68,7 @@ void Game::Run() {
 		SDL_Event Event;
 
 		while (SDL_PollEvent(&Event)) {
+
 			switch (Event.type) {
 			case SDL_QUIT:
 				return;
@@ -75,18 +76,20 @@ void Game::Run() {
 				if (gamestate == GameState::MainMenu) {
 					menu->handleInput(Event);
 				}
-				else {
-					game->HandleInput(Event);
-				}
 				break;
 			}
 		}
+		float deltatime = FrameDelay / 1000.0f;
+
+		if(gamestate != GameState::MainMenu) {
+			game->HandleInput(deltatime);
+		}
 		if (gamestate == GameState::MainMenu) {
-			menu->update(FrameDelay / 1000.0f);
+			menu->update(deltatime);
 		}
 		else {
 
-			game->Update(FrameDelay / 1000.0f);
+			game->Update(deltatime);
 		}
 		SDL_SetRenderDrawColor(Renderer, 0, 0, 0, 0);
 		SDL_RenderClear(Renderer);

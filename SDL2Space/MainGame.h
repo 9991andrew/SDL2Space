@@ -11,14 +11,15 @@ public:
     ~MainGame();
 
     void Init(SDL_Renderer* renderer);
-    void HandleInput(SDL_Event event);
+    void HandleInput(float deltatime);
     void Update(float deltaTime);
     void Draw();
     void Cleanup();
 
 private:
     SDL_Renderer* m_renderer;
-    Spritesheet* spritesheet;
+    Spritesheet* playerspritesheet;
+    Spritesheet* projectilespritesheet;
     Player* player;
     Background* background;
 };

@@ -18,7 +18,7 @@ void Projectile::update(float deltaTime) {
     }
     // Update other properties if necessary.
     std::cout << "Projectile position: (" << m_dstRect.x << ", " << m_dstRect.y << ")\n";
-
+    
 }
 
 void Projectile::draw(SDL_Renderer* renderer) {

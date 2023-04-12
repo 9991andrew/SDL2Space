@@ -12,10 +12,12 @@ public:
 
     bool isOffscreen() const;
 
+     SDL_Rect& GetDstRect() { return m_dstRect; }
+
+
 private:
     Spritesheet* m_spritesheet;
     SDL_Rect m_srcRect;
-    SDL_Rect m_dstRect;
     float m_speed;
 
     int m_currentframe;

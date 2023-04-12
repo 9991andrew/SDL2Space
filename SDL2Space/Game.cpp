@@ -20,7 +20,7 @@ bool Game::Init() {
 		return false;
 	}
 
-	Window = SDL_CreateWindow("Cosmic Defenders", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+	Window = SDL_CreateWindow("Cosmic Defenders", 100, 100, 320, 480, SDL_WINDOW_SHOWN);
 	if (Window == nullptr) {
 		SDL_Log("Failed to create window: %s", SDL_GetError());
 		return false;

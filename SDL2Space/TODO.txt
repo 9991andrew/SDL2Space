@@ -1,0 +1,15 @@
+List TODO:
+
+
+Finished~ Add in enemies. They will be gameobjects.
+Finished~~ These enemies will move down towards the player.
+Finished~~ New concepts will implemented as time goes on.
+
+
+
+~ Powerups - figure out a way to get powerups added into the game.
+~~ Powerup concepts:
+~~~ They should make the player deal more damage.
+~~~ They should make it possible to shoot more or faster projectiles.
+
+

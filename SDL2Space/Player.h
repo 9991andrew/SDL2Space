@@ -12,7 +12,7 @@ public:
     void update(float deltaTime) override;
     void draw(SDL_Renderer* renderer);
 
-    const std::vector<Projectile*>& getProjectiles() const { return m_projectiles;  }
+    std::vector<Projectile*>& getProjectiles() { return m_projectiles;  }
 
 private:
     Spritesheet* m_playerspritesheet;
@@ -21,7 +21,7 @@ private:
     float m_animationspeed;
     float m_animationtimer;
 
-    std::vector<Projectile*> m_projectiles;
+    std::vector<Projectile*> m_projectiles; 
     float m_shootCooldown;
     float m_shootCooldownMax;
 

@@ -15,11 +15,11 @@ MainMenu::MainMenu(SDL_Renderer* renderer) : renderer(renderer), Font(nullptr), 
     SDL_Color color{ 255,255,255 };
     stitlesurface = TTF_RenderText_Solid(Font, "Cosmic Defenders", color);
     ttitlesurface = SDL_CreateTextureFromSurface(renderer, stitlesurface);
-    titlerect = { 200,100,stitlesurface->w, stitlesurface->h };
+    titlerect = { 25,50,stitlesurface->w, stitlesurface->h };
 
-    buttonrects[Button::Play] = {240, 200, 160, 32};
-    buttonrects[Button::Options] = { 240,320,160,32 };
-    buttonrects[Button::Exit] = { 240, 440, 160, 32 };
+    buttonrects[Button::Play] = {120, 100, 80, 16};
+    buttonrects[Button::Options] = { 120,160,80,16 };
+    buttonrects[Button::Exit] = { 120, 220, 80, 16 };
 }
 
 MainMenu::~MainMenu() {

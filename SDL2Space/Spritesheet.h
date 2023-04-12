@@ -12,6 +12,8 @@ public:
 
     void draw(SDL_Renderer* renderer, int x, int y, int spriteIndex);
     int gettotalframes() const;
+    int GetWidth() const { return m_spriteWidth; }
+    int GetHeight() const { return m_spriteHeight; }
 
 private:
     SDL_Texture* m_texture;

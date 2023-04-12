@@ -50,7 +50,6 @@ void Player::update(float deltaTime) {
         }
     }
 
-    std::cout << "Player position: (" << x << ", " << y << ")\n";
 }
 
 void Player::draw(SDL_Renderer* renderer) {
@@ -65,6 +64,5 @@ void Player::Shoot() {
         m_projectiles.push_back(projectile);
         m_shootCooldown = m_shootCooldownMax;
 
-        std::cout << "Projectile created at (" << x << ", " << y << ")\n";
     }
 }

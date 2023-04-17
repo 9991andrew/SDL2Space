@@ -2,11 +2,11 @@
 
 ShootingEnemy::ShootingEnemy
 (
-	Spritesheet* spritesheet,
+	std::shared_ptr<Spritesheet> spritesheet,
 	float startX,
 	float startY, 
 	float speed, 
-	Spritesheet* bulletSpritesheet,
+	std::shared_ptr<Spritesheet> bulletSpritesheet,
 	float shootInterval
 ):Enemy(spritesheet, startX, startY,speed), 
 	bulletspritesheet(bulletSpritesheet), 
@@ -26,8 +26,7 @@ void ShootingEnemy::update(float deltaTime) {
 	for (auto projectileIter = projectiles.begin(); projectileIter != projectiles.end();) {
 		(*projectileIter)->update(deltaTime);
 
-		if ((*projectileIter)->isOffscreen()) {
-			delete* projectileIter;
+		if ((*projectileIter)->isOffscreen() ) {
 			projectileIter = projectiles.erase(projectileIter);
 		}
 		else {
@@ -41,11 +40,10 @@ void ShootingEnemy::update(float deltaTime) {
 void ShootingEnemy::ShootProjectile() {
 	// Calculate the bullet's position and direction
 	
-	std::cout << "Shooting projectile" << std::endl;
 
 	// Create a new bullet and add it to the bullets vector
-	Projectile* projectile = new Projectile(bulletspritesheet, x, m_dstRect.y, -200);
-	projectiles.push_back(projectile);
+	std::unique_ptr<Projectile> projectile = std::make_unique<Projectile>(bulletspritesheet, x, m_dstRect.y, 0, 200);
+	projectiles.push_back(std::move(projectile));
 }
 
 void ShootingEnemy::draw(SDL_Renderer* renderer) {
@@ -53,7 +51,7 @@ void ShootingEnemy::draw(SDL_Renderer* renderer) {
 	Enemy::draw(renderer);
 
 	// Draw the projectiles fired by the enemy
-	for (Projectile* projectile : projectiles) {
+	for (const auto& projectile : projectiles) {
 		projectile->draw(renderer);
 	}
 

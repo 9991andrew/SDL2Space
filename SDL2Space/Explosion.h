@@ -4,13 +4,13 @@
 #include <SDL.h>
 class Explosion : public GameObject{
 public:
-	Explosion(Spritesheet* spritesheet, int x, int y, float animationspeed);
+	Explosion(std::shared_ptr<Spritesheet> spritesheet, int x, int y, float animationspeed);
 	~Explosion();
 	void update(float deltaTime) override;
 	void draw(SDL_Renderer* renderer);
 	bool isAnimationFinished() const;
 private:
-	Spritesheet* spritesheet;
+	std::shared_ptr<Spritesheet> spritesheet;
 	int currentframe;
 	int totalframes;
 	float animationspeed;

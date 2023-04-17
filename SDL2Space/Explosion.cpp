@@ -1,7 +1,7 @@
 #include "Explosion.h"
 
 
-Explosion::Explosion(Spritesheet* spritesheet, int x, int y, float animationspeed): 
+Explosion::Explosion(std::shared_ptr<Spritesheet> spritesheet, int x, int y, float animationspeed): 
 	GameObject(x,y), 
 	spritesheet(spritesheet), 
 	currentframe(0), 

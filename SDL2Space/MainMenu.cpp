@@ -6,7 +6,7 @@ MainMenu::MainMenu(SDL_Renderer* renderer) : renderer(renderer), Font(nullptr), 
         return;
     }
 
-    Font = TTF_OpenFont("C:/Windows/Fonts/Arial.ttf", 32);
+    Font = TTF_OpenFont("C:/Windows/Fonts/Arial.ttf", 12);
     if (Font == nullptr) {
         SDL_Log("Failed to load font: %s", SDL_GetError());
         return;

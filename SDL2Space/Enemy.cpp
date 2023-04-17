@@ -1,5 +1,5 @@
 #include "Enemy.h"
-Enemy::Enemy(Spritesheet* spritesheet, int startX, int startY, float speed) :
+Enemy::Enemy(std::shared_ptr<Spritesheet> spritesheet, int startX, int startY, float speed) :
     GameObject(startX, startY),
     m_spritesheet(spritesheet),
     m_fallSpeed(speed),
@@ -18,10 +18,6 @@ Enemy::Enemy(Spritesheet* spritesheet, int startX, int startY, float speed) :
 
 }
 
-SDL_Rect& Enemy::GetDstRect() 
-{
-    return m_dstRect;
-}
 
 void Enemy::update(float deltaTime) {
 
